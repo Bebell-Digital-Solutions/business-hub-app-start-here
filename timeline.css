@@ -1,0 +1,47 @@
+/* Custom Timeline Styles */
+.timeline-marker {
+    position: absolute;
+    left: 2px;
+    top: 1.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    background: var(--primary-color);
+    border: 4px solid var(--light-bg);
+    box-sizing: content-box;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+    .timeline-marker {
+        left: 6.5rem;
+    }
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 8px; /* Aligned with marker on mobile */
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: #e2e8f0;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+    .timeline-item:before {
+        left: 6.5rem;
+    }
+}
+
+.timeline-item:last-child:before {
+   display: none;
+}
+
+.text-slate-900 {
+    color: var(--dark-text);
+}
+.text-slate-600 {
+    color: var(--medium-text);
+}
