@@ -38,13 +38,14 @@
         
         .container {
         width: 100%;
-            max-width: 1200px;
+ 
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 0px;
         }
         
         section {
             padding: var(--section-padding);
+            
         }
         
         h1, h2, h3, h4 {
@@ -73,6 +74,8 @@
             font-size: 1.1rem;
         }
         
+        
+        
         /* Hero Section */
         .hero-section {
         background: url('https://bucket.mlcdn.com/a/3336/3336910/images/2bbcd4eccc9d3c09a9054f5054c7d2d97ab56288.jpeg') no-repeat center center/cover; /* Placeholder de imagen */
@@ -86,26 +89,45 @@
         }
         
         
-                .hero-section {
-            
-            background-color: #df1783; /* Color de fallback */
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
         
         
-        
-        
-        
+               
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
+        
+        
+        
+        
+   
+         /* Logo Container */
+    .logo-container {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 30px;
+    }
+    
+    .logo-circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .logo-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px; /* Adjust based on your logo size */
+        height: auto;
+    }
+        
+        
+ 
         
         .hero-title {
             font-size: 3.5em;
@@ -121,38 +143,60 @@
             opacity: 0.9;
         }
         
+        
+        
+        
+        
+        
         /* Introduction Section */
         .intro-section {
             background-color: #fff;
+            margin: 30px;
 
         }
         
-        /* Video Section */
+        
+        
+    /* Video Section Styles */
+    .video-section {
+        padding: 80 30px;
+        background-color: #fff;
+        text-align: center;
+    }
+    
+    .video-container {
+        position: relative;
+        padding-bottom: 50%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(223, 23, 131, 0.2);
+        background: #000;
+    }
+    
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
         .video-section {
-            background-color: #df1783;
-            color: white;
+            padding: 60px 15px;
         }
         
         .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            background: #000;
+            border-radius: 8px;
         }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+    }
+    
+
         
         /* Cards Layout */
         .cards-container {
@@ -160,6 +204,9 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
+            padding: 0 30px;
+            margin-left: 30px;
+            margin-right: 30px;
         }
         
         .section-card {
@@ -215,7 +262,7 @@
         .timeline {
             position: relative;
             margin: 50px 0;
-            padding-left: 40px;
+            padding-left: 60px;
         }
         
         .timeline::before {
@@ -410,6 +457,10 @@
                 font-size: 1.4em;
             }
             
+                   .logo-image {
+            width: 65px;
+        }
+            
             section {
                 padding: 50px 0;
             }
@@ -441,6 +492,8 @@
                 width: 20px;
                 height: 20px;
             }
+            
+            
         }
         
         @media (max-width: 576px) {
@@ -531,7 +584,7 @@
     .feature-icon {
         width: 50px;
         height: 50px;
-        background-color: #fdf0f6;
+        background-color: #fff;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -594,33 +647,95 @@
         }
     } 
         
-        
-        
-        
-        
-        
-        
+
     </style>
+    
+    <!-- Widget BACK-TO-TOP -->
+<script>
+// Create Back-to-Top Button Dynamically
+document.addEventListener("DOMContentLoaded", function () {
+    // Create the button container
+    const backToTop = document.createElement("div");
+    backToTop.id = "back-to-top";
+    backToTop.style.position = "fixed";
+    backToTop.style.bottom = "30px";
+    backToTop.style.right = "30px";
+    backToTop.style.display = "none";
+    backToTop.style.cursor = "pointer";
+    backToTop.style.zIndex = "9999";
+
+    // Create the image inside the button
+    const backToTopImg = document.createElement("img");
+    backToTopImg.src = "https://bucket.mlcdn.com/a/3336/3336910/images/29840e122b950f88fdca23072015101b427a9112.png";
+    backToTopImg.alt = "Volver arriba";
+    backToTopImg.style.width = "40px";
+    backToTopImg.style.height = "40px";
+
+    // Append image to the button
+    backToTop.appendChild(backToTopImg);
+
+    // Append button to the body
+    document.body.appendChild(backToTop);
+
+    // Scroll Event Listener
+    window.addEventListener("scroll", function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
+    });
+
+    // Click Event for Scrolling to Top
+    backToTop.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
+</script>
+<!-- End Widget BACK-TO-TOP -->
+    
+    
+    
+    
 </head>
 <body>
    
    
    <main class="container">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 style="color: white", class="hero-title">Welcome to Synergy, Business Hub!</h1>
-                <p style="color: white", class="hero-subtitle">Your All-in-One Cloud Business Center</p>
-            </div>
-        </section>
+        
+        
+        
+ <!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <svg class="logo-circle" width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="70" fill="#fdf0f6" /> <!-- Light pink circle -->
+            </svg>
+            <img 
+                src="https://bucket.mlcdn.com/a/3336/3336910/images/b02aa1c834a44e056b5438a97b19b33aa6f3c11d.png" 
+                alt="Synergy Business Hub Logo" 
+                class="logo-image"
+            />
+        </div>
+        
+        <h1 class="hero-title", style="color: white;">Welcome to<br>Synergy, Business Hub! 🎉</h1>
+        <p class="hero-subtitle", style="color: white;">Your All-in-One Cloud Business Center</p>
+    </div>
+</section>
         
         
         
 
         <!-- Introduction Section -->
         <section class="intro-section">
+      
             <h2>Hello and Welcome Aboard!</h2>
-            <p>We at <strong>Bebell Digital Solutions</strong> are both honored and excited to guide you through <strong>Synergy, Business Hub</strong>🚀.</p>
+            <p>We at <strong>Bebell Digital Solutions</strong> are both honored and excited to guide you through <strong>Synergy, Business Hub</strong> 🚀.</p>
             
             <p>Building and scaling an online business can be challenging with so much to learn, countless tools to evaluate, and endless tasks to manage. That's why we created Synergy - a centralized cloud space designed to be your <strong>operational headquarters, knowledge base, and resource center</strong> all in one.</p>
             
@@ -631,7 +746,7 @@
         <section class="video-section", style="background-color: #df1783">
             <h2 style="color: white">Watch the Synergy Introduction Video</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                <iframe src="https://youtube.com/embed/n-4gTbKU0ac" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
@@ -639,9 +754,13 @@
             </div>
             <p style="color: white; text-align: center; margin-top: 20px;">A quick visual guide to how Synergy can help accelerate your business growth.</p>
         </section>
+        
+        
+        
+        
 
         <!-- What is Synergy Section -->
-        <section class="what-is-synergy-section">
+        <section class="what-is-synergy-section", style="margin: 30px;">
             <h2>What is Synergy, Business Hub?</h2>
             <p>Synergy is an intuitive platform that consolidates essential business information, tools, and resources into one convenient location. Think of it as the digital headquarters for your online business - always accessible, always up-to-date.</p>
             
@@ -661,7 +780,7 @@
         
 
  <!-- How to Start Section -->
-<section class="how-to-start-section">
+<section class="how-to-start-section", style="background-color: #fde9f2;">
     <h2>How to Begin Using Synergy</h2>
     <p class="section-intro">You're in the perfect place to start your journey. This "<strong>Start Here</strong>" section is designed to welcome you and show you how to navigate the platform.</p>
     
@@ -1037,7 +1156,7 @@
             
             
 
-            <p class="duration-note">
+            <p class="duration-note", style="background-color: #df1783; color: white; margin-top: 100px; padding: 30px;">
                 <strong>Note:</strong> The duration of each stage depends entirely on your pace, prior knowledge, and your business's specific needs. Synergy is flexible - jump to whatever section you need at any time. Some modules may include time estimates for completing specific activities.
             </p>
         </section>
@@ -1101,7 +1220,7 @@
         
 
         <!-- Call to Action -->
-        <section class="cta-section">
+        <section class="cta-section"">
        <h2>Your Journey Starts Now 🚀</h2>
             <p>Synergy is designed to be your companion at every stage of your online business growth. You don't need to tackle everything at once - start with what feels most relevant to your current needs.</p>
             <button class="explore-button">Start Exploring the Sections!</button>
