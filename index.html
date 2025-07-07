@@ -75,7 +75,8 @@
         
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        background: url('https://bucket.mlcdn.com/a/3336/3336910/images/2bbcd4eccc9d3c09a9054f5054c7d2d97ab56288.jpeg') no-repeat center center/cover; /* Placeholder de imagen */
+            background-color: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
             padding: 120px 20px;
@@ -83,6 +84,21 @@
             overflow: hidden;
             width: 100%;
         }
+        
+        
+                .hero-section {
+            
+            background-color: #df1783; /* Color de fallback */
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        
+        
+        
         
         .hero-content {
             position: relative;
@@ -462,61 +478,134 @@
                 height: 30px;
             }
         }
-    </style>
-
-<!-- Widget BACK-TO-TOP -->
-<script>
-// Create Back-to-Top Button Dynamically
-document.addEventListener("DOMContentLoaded", function () {
-    // Create the button container
-    const backToTop = document.createElement("div");
-    backToTop.id = "back-to-top";
-    backToTop.style.position = "fixed";
-    backToTop.style.bottom = "20px";
-    backToTop.style.right = "20px";
-    backToTop.style.display = "none";
-    backToTop.style.cursor = "pointer";
-    backToTop.style.zIndex = "9999";
-
-    // Create the image inside the button
-    const backToTopImg = document.createElement("img");
-    backToTopImg.src = "https://bucket.mlcdn.com/a/3336/3336910/images/3fbd37902ff101f2a2ade1b5e7ba9c1fdef689ca.png";
-    backToTopImg.alt = "Volver arriba";
-    backToTopImg.style.width = "40px";
-    backToTopImg.style.height = "40px";
-
-    // Append image to the button
-    backToTop.appendChild(backToTopImg);
-
-    // Append button to the body
-    document.body.appendChild(backToTop);
-
-    // Scroll Event Listener
-    window.addEventListener("scroll", function () {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
-        }
-    });
-
-    // Click Event for Scrolling to Top
-    backToTop.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-});
-</script>
-<!-- End Widget BACK-TO-TOP -->
-
-
-
+        
+        
+           /* How to Start Section Styles */
+    .how-to-start-section {
+        background-color: #fff;
+        padding: 80px 0;
+    }
     
+    .section-intro {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+        color: var(--medium-text);
+    }
+    
+    .two-column-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .image-column {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .platform-image {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(223, 23, 131, 0.15);
+        object-fit: cover;
+        aspect-ratio: 1/1;
+    }
+    
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .feature-item {
+        display: flex;
+        margin-bottom: 30px;
+        align-items: flex-start;
+    }
+    
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        background-color: #fdf0f6;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+    
+    .feature-icon svg {
+        width: 24px;
+        height: 24px;
+        color: var(--primary-color);
+    }
+    
+    .feature-content h3 {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+    }
+    
+    .feature-content p {
+        color: var(--medium-text);
+        margin: 0;
+        line-height: 1.5;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .two-column-layout {
+            gap: 30px;
+        }
+        
+        .feature-item {
+            margin-bottom: 25px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .two-column-layout {
+            grid-template-columns: 1fr;
+        }
+        
+        .image-column {
+            margin-bottom: 30px;
+        }
+        
+        .platform-image {
+            max-width: 400px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .feature-item {
+            flex-direction: column;
+        }
+        
+        .feature-icon {
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+    } 
+        
+        
+        
+        
+        
+        
+        
+    </style>
 </head>
 <body>
-    <main class="container">
+   
+   
+   <main class="container">
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
@@ -524,11 +613,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p style="color: white", class="hero-subtitle">Your All-in-One Cloud Business Center</p>
             </div>
         </section>
+        
+        
+        
 
         <!-- Introduction Section -->
         <section class="intro-section">
             <h2>Hello and Welcome Aboard!</h2>
-            <p>We at Bebell Digital Solutions are both honored and excited to guide you through <strong>Synergy, Business Hub</strong>🚀.</p>
+            <p>We at <strong>Bebell Digital Solutions</strong> are both honored and excited to guide you through <strong>Synergy, Business Hub</strong>🚀.</p>
             
             <p>Building and scaling an online business can be challenging with so much to learn, countless tools to evaluate, and endless tasks to manage. That's why we created Synergy - a centralized cloud space designed to be your <strong>operational headquarters, knowledge base, and resource center</strong> all in one.</p>
             
@@ -557,34 +649,84 @@ document.addEventListener("DOMContentLoaded", function () {
             
             <p>Synergy is designed to grow with you - whether you're just starting out or looking to scale an existing business, you'll find valuable resources at every stage of your journey.</p>
         </section>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
-        <!-- How to Start Section -->
-        <section class="how-to-start-section">
-            <h2>How to Begin Using Synergy</h2>
-            <p>You're in the perfect place to start your journey. This "Start Here" section is designed to welcome you and show you how to navigate the platform.</p>
-            
-            <div class="onboarding-steps">
-                <div class="step">
-                    <h3>1. Explore This Panel</h3>
-                    <p>Familiarize yourself with the basic structure (left menu, main content panel). Notice how sections are organized.</p>
-                </div>
+ <!-- How to Start Section -->
+<section class="how-to-start-section">
+    <h2>How to Begin Using Synergy</h2>
+    <p class="section-intro">You're in the perfect place to start your journey. This "<strong>Start Here</strong>" section is designed to welcome you and show you how to navigate the platform.</p>
+    
+    <div class="two-column-layout">
+        <!-- Image Column -->
+        <div class="image-column">
+            <img src="https://bucket.mlcdn.com/a/3336/3336910/images/73b032cef263c5071c6706f8c3d6efb026f030b5.gif" alt="Synergy Platform Interface" class="platform-image">
+        </div>
+        
+        <!-- Text Column -->
+        <div class="text-column">
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Explore This Panel</h3>
+                        <p>Familiarize yourself with the basic structure (left menu, main content panel). Notice how sections are organized.</p>
+                    </div>
+                </li>
                 
-                <div class="step">
-                    <h3>2. Discover the Sections</h3>
-                    <p>Below you'll find a summary of each main section in the menu. Take time to understand the value each one offers.</p>
-                </div>
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Discover the Sections</h3>
+                        <p>Below you'll find a summary of each main section in the menu. Take time to understand the value each one offers.</p>
+                    </div>
+                </li>
                 
-                <div class="step">
-                    <h3>3. Choose Your Next Step</h3>
-                    <p>Once you have an overview, go to the section most relevant to your current situation or the challenge you're facing.</p>
-                </div>
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Choose Your Next Step</h3>
+                        <p>Once you have an overview, go to the section most relevant to your current situation or challenge.</p>
+                    </div>
+                </li>
                 
-                <div class="step">
-                    <h3>4. Utilize the Resources</h3>
-                    <p>In each section, you'll find guides, templates, integrated tools, or links to external resources to help you implement what you learn.</p>
-                </div>
-            </div>
-        </section>
+                <li class="feature-item">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Utilize the Resources</h3>
+                        <p>In each section, you'll find guides, templates, integrated tools, or links to external resources.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 
         <!-- Sections Overview -->
         <section class="sections-overview-section">
@@ -811,7 +953,15 @@ document.addEventListener("DOMContentLoaded", function () {
         </section>
         
         
-
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         <!-- Journey Timeline -->
         <section class="journey-timeline-section">
