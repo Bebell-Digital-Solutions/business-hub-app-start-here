@@ -1,0 +1,1004 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Here | Synergy, Business Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Caveat:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="timeline.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pink: {
+                            600: '#DF1783',
+                            700: '#C1146E'
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        caveat: ['Caveat', 'cursive'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        :root {
+            --primary-color: #df1783;
+            --primary-dark: #b81269;
+            --secondary-color: #9c1de7;
+            --accent-color: #ff6b9d;
+            --light-bg: #ffffff;
+            --dark-text: #333333;
+            --medium-text: #666666;
+            --light-text: #ffffff;
+            --card-shadow: 0 4px 15px rgba(223, 23, 131, 0.1);
+            --card-shadow-hover: 0 6px 20px rgba(223, 23, 131, 0.15);
+            --section-padding: 80px 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        
+                .custom-image-widget {
+            position: fixed !important;
+            top: 50px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            right: 0px;
+            z-index: 999;
+        }
+        
+        .custom-image {
+            width: 70px;
+            height: auto;
+            transition: transform 0.2s;
+        }
+        
+        .custom-image-widget:hover .custom-image {
+            transform: scale(1.05);
+        }
+        
+        .custom-image-widget:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: white;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+            
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+        
+        section {
+            padding: var(--section-padding);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 3rem; /* 48px */
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--medium-text);
+            font-size: 1.1rem;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: url('https://bucket.mlcdn.com/a/3336/3336910/images/2bbcd4eccc9d3c09a9054f5054c7d2d97ab56288.jpeg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+        }
+        
+        .logo-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .logo-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: auto;
+        }
+        
+        .hero-title {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8em;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            background-color: #fff;
+        }
+        
+        /* Video Section Styles */
+        .video-section {
+            background-color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(223, 23, 131, 0.2);
+            background: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .video-section {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+            .video-container {
+                border-radius: 8px;
+            }
+        }
+
+        /* Cards Layout */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .section-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .cards-container a {
+            text-decoration: none;
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .card-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke-width: 1.5;
+        }
+        
+        .card-title {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .card-description {
+            font-size: 1rem;
+            color: var(--medium-text);
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .stage-hubs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .stage-hubs span {
+            background-color: #f8e1ee;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+        
+        /* FAQ Section */
+        .faq-item {
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .faq-question {
+            margin: 0;
+            padding: 20px 25px;
+            cursor: pointer;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5em;
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8em;
+            transition: transform 0.3s ease;
+            color: var(--primary-color);
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .explore-button {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 18px 36px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .explore-button:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* How to Start Section Styles */
+        .how-to-start-section {
+            background-color: #fde9f2;
+        }
+        
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: var(--medium-text);
+        }
+        
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .image-column {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .platform-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(223, 23, 131, 0.15);
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+        }
+        
+        .feature-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        
+        .feature-content p {
+            color: var(--medium-text);
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        /* Custom Timeline Styles - Scoped to .journey-timeline-section */
+.journey-timeline-section .timeline-marker {
+    position: absolute;
+    left: 2px;
+    top: 1.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    background: var(--primary-color);
+    border: 4px solid var(--light-bg);
+    box-sizing: content-box;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+    .journey-timeline-section .timeline-marker {
+        left: 6.5rem;
+    }
+}
+
+.journey-timeline-section .timeline-item:before {
+    content: '';
+    position: absolute;
+    left: 8px; /* Aligned with marker on mobile */
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: #e2e8f0;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+    .journey-timeline-section .timeline-item:before {
+        left: 6.5rem;
+    }
+}
+
+.journey-timeline-section .timeline-item:last-child:before {
+   display: none;
+}
+
+.journey-timeline-section .text-slate-900 {
+    color: var(--dark-text);
+}
+.journey-timeline-section .text-slate-600 {
+    color: var(--medium-text);
+}
+
+
+
+        
+        
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            section {
+                padding: 60px 0;
+            }
+            .two-column-layout {
+                gap: 30px;
+            }
+            .feature-item {
+                margin-bottom: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            .hero-subtitle {
+                font-size: 1.4em;
+            }
+            .logo-image {
+                width: 65px;
+            }
+            section {
+                padding: 50px 0;
+            }
+            h2 {
+                margin-bottom: 30px;
+            }
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .cta-section {
+                padding: 60px 25px;
+            }
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            .image-column {
+                order: -1; /* Move image to top on mobile */
+                margin-bottom: 30px;
+            }
+            .platform-image {
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            section {
+                padding: 40px 0;
+            }
+            .cta-section {
+                padding: 50px 20px;
+            }
+            .card-icon {
+                width: 60px;
+                height: 60px;
+            }
+            .card-icon svg {
+                width: 30px;
+                height: 30px;
+            }
+            .feature-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+    
+    <!-- Widget BACK-TO-TOP -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const backToTop = document.createElement("div");
+        backToTop.id = "back-to-top";
+        backToTop.style.position = "fixed";
+        backToTop.style.bottom = "30px";
+        backToTop.style.right = "30px";
+        backToTop.style.display = "none";
+        backToTop.style.cursor = "pointer";
+        backToTop.style.zIndex = "9999";
+
+        const backToTopImg = document.createElement("img");
+        backToTopImg.src = "https://bucket.mlcdn.com/a/3336/3336910/images/29840e122b950f88fdca23072015101b427a9112.png";
+        backToTopImg.alt = "Volver arriba";
+        backToTopImg.style.width = "40px";
+        backToTopImg.style.height = "40px";
+        
+        backToTop.appendChild(backToTopImg);
+        document.body.appendChild(backToTop);
+
+        window.addEventListener("scroll", function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        });
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+
+
+  
+    <div class="custom-image-widget" style="position: relative; display: inline-block;"> <!-- ADD THESE STYLES -->
+    <a href="https://bebell-digital-solutions.github.io/business-hub-app-start-here/">
+        <img class="custom-image" 
+             src="https://bucket.mlcdn.com/a/3336/3336910/images/2891bb0a192c808fe1bb53e3905fc787957c2085.png" 
+             alt="English Translation"
+             style="display: block;"> <!-- Ensure image is block-level -->
+    </a>
+
+</div>
+
+
+
+
+
+   
+   
+ <main>
+    <!-- Sección Hero -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="logo-container">
+                <svg class="logo-circle" width="150" height="150" viewBox="0 0 150 150">
+                    <circle cx="75" cy="75" r="70" fill="#fdf0f6" />
+                </svg>
+                <img 
+                    src="https://bucket.mlcdn.com/a/3336/3336910/images/b02aa1c834a44e056b5438a97b19b33aa6f3c11d.png" 
+                    alt="Logo de Synergy Business Hub" 
+                    class="logo-image"
+                />
+            </div>
+            <h1 class="hero-title" style="color: white;">Synergy, Business Hub 🚀</h1>
+            <p class="hero-subtitle" style="color: white;">Tu Centro de Negocios en la Nube Todo-en-Uno</p>
+        </div>
+    </section>
+    
+    <!-- Sección de Introducción -->
+    <section class="intro-section">
+        <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                   @media (max-width: 768px) { font-size: 24px; }">
+            <strong>¡Hola y Bienvenido a Bordo!</strong>
+        </h2>
+        <div class="content-wrapper">
+            <p><br>En <strong>Bebell Digital Solutions</strong> nos sentimos honrados y emocionados de guiarte a través de <strong>Synergy, Business Hub</strong> 🚀.</p><br>
+            <p>Construir y escalar un negocio en línea puede ser desafiante con tanto por aprender, innumerables herramientas para evaluar y tareas interminables que gestionar. Por eso creamos Synergy - un espacio en la nube centralizado diseñado para ser tu <strong>cuartel general operativo, base de conocimiento y centro de recursos</strong> todo en uno.</p><br>
+            <p>Aquí encontrarás todo lo que necesitas: desde la planificación inicial hasta la optimización y el crecimiento a gran escala. Nuestra misión es proporcionar la orientación, herramientas y conocimiento que tu negocio digital necesita para no solo sobrevivir, sino prosperar en el panorama competitivo actual.</p>
+        </div>
+    </section>
+
+    <!-- Sección de Video Presentación -->
+    <section class="video-section">
+        <div class="content-wrapper">
+            <h2 style="font-size: 48px; color: white; margin: 0; padding: 0; line-height: 1.2; 
+                       @media (max-width: 768px) { font-size: 24px; }">
+                <strong>Mira el Video de Introducción a Synergy</strong>
+            </h2><br>
+            <div style="display: flex; justify-content: center;">
+                <div id="div-3" style="width: 100%; max-width: 100%;">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/n-4gTbKU0ac" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <p style="color: white; text-align: center; margin-top: 20px;">Una guía visual rápida de cómo Synergy puede ayudar a acelerar el crecimiento de tu negocio.</p>
+        </div>
+    </section>
+
+    <!-- Sección Qué es Synergy -->
+    <section class="what-is-synergy-section">
+        <div class="content-wrapper">
+            <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                       @media (max-width: 768px) { font-size: 24px; }">
+                <strong>¿Qué es Synergy, Business Hub?</strong>
+            </h2>
+            <p><br>Synergy es una plataforma intuitiva que consolida información, herramientas y recursos esenciales para negocios en un solo lugar conveniente. Piensa en ello como el cuartel general digital para tu negocio en línea - siempre accesible, siempre actualizado.</p><br>
+            <p>Hemos organizado el vasto mundo del emprendimiento en línea en secciones claras y manejables a las que puedes acceder fácilmente desde el menú de navegación izquierdo. Cuando selecciones cualquier elemento del menú, la sección correspondiente se abrirá en el panel principal donde encontrarás guías, herramientas, recursos y contenido relevante.</p><br>
+            <p>Synergy está diseñado para crecer contigo - ya sea que estés comenzando o buscando escalar un negocio existente, encontrarás recursos valiosos en cada etapa de tu viaje.</p>
+        </div>
+    </section>
+
+    <!-- Sección Cómo Empezar -->
+    <section class="how-to-start-section">
+        <div class="content-wrapper">
+            <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                       @media (max-width: 768px) { font-size: 24px; }">
+                <strong>Cómo Comenzar a Usar Synergy</strong>
+            </h2>
+            <p class="section-intro"><br>Estás en el lugar perfecto para comenzar tu viaje. Esta sección "<strong>Comienza Aquí</strong>" está diseñada para darte la bienvenida y mostrarte cómo navegar la plataforma.</p>
+            <div class="two-column-layout">
+                <div class="image-column">
+                    <img src="https://bucket.mlcdn.com/a/3336/3336910/images/73b032cef263c5071c6706f8c3d6efb026f030b5.gif" alt="Interfaz de la Plataforma Synergy" class="platform-image">
+                </div>
+                <div class="text-column">
+                    <ul class="feature-list">
+                        <li class="feature-item"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg></div><div class="feature-content"><h3>Explora Este Panel</h3><p>Familiarízate con la estructura básica (menú izquierdo, panel de contenido principal). Observa cómo están organizadas las secciones.</p></div></li>
+                        <li class="feature-item"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path><path d="M8 10v4"></path><path d="M12 10v2"></path><path d="M16 10v6"></path></svg></div><div class="feature-content"><h3>Descubre las Secciones</h3><p>Abajo encontrarás un resumen de cada sección principal en el menú. Tómate el tiempo para entender el valor que ofrece cada una.</p></div></li>
+                        <li class="feature-item"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg></div><div class="feature-content"><h3>Elige Tu Próximo Paso</h3><p>Una vez que tengas una visión general, ve a la sección más relevante para tu situación o desafío actual.</p></div></li>
+                        <li class="feature-item"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m18 16 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg></div><div class="feature-content"><h3>Utiliza los Recursos</h3><p>En cada sección, encontrarás guías, plantillas, herramientas integradas o enlaces a recursos externos.</p></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resumen de Secciones -->
+    <section class="sections-overview-section">
+        <div class="content-wrapper">
+            <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                       @media (max-width: 768px) { font-size: 24px; }">
+                <strong>Resumen del Hub Synergy</strong>
+            </h2>
+            <p style="text-align: center; margin-bottom: 40px;"><br>Explora las áreas clave que cubrimos. <strong>Haz clic en una tarjeta</strong> para aprender más o ir directamente a esa sección.</p>
+            <div class="cards-container">
+                <!-- Tarjetas ... -->
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="organization-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div><h3 class="card-title">Hub de Organización</h3><p class="card-description">Construye fundamentos internos. Estructura tu negocio, define procesos y establece una base operativa sólida.<br>Valor: Te ayuda a crear eficiencia y orden en la estructura de tu negocio.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="productivity-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div><h3 class="card-title">Hub de Productividad</h3><p class="card-description">Recursos y estrategias enfocados en maximizar tu tiempo, gestionar tareas efectivamente, reducir distracciones y mejorar la productividad general personal y empresarial.<br>Valor: Te ayuda a trabajar más inteligentemente, lograr más en menos tiempo y reducir el estrés.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="privacy-precaution-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></div><h3 class="card-title">Hub de Privacidad y Precauciones</h3><p class="card-description">Seguridad y prevención. Protege tu información y los datos de tus clientes mientras minimizas riesgos.<br>Valor: Asegura que construyas una presencia en línea segura y confiable, mitigando riesgos.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="exploration-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.065 12.493-6.18 1.318a.934.934 0 0 1-1.108-.702l-.537-2.15a1.07 1.07 0 0 1 .691-1.265l13.504-4.44"/><path d="m13.56 11.747 4.332-.924"/><path d="m16 21-3.105-6.21"/><path d="M16.485 5.94a2 2 0 0 1 1.455-2.425l1.09-.272a1 1 0 0 1 1.212.727l1.515 6.06a1 1 0 0 1-.727 1.213l-1.09.272a2 2 0 0 1-2.425-1.455z"/><path d="m6.158 8.633 1.114 4.456"/><path d="m8 21 3.105-6.21"/><circle cx="12" cy="13" r="2"/></svg></div><h3 class="card-title">Hub de Exploración</h3><p class="card-description">Validación de ideas. Explora nuevas oportunidades y valida la viabilidad de tu concepto de negocio.<br>Valor: Te mantiene informado e inspirado para encontrar nuevas vías de crecimiento.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="market-research-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div><h3 class="card-title">Hub de Investigación de Mercado</h3><p class="card-description">Conoce a tu audiencia y competencia. Investiga tu mercado objetivo y tendencias de la industria.<br>Valor: Proporciona los conocimientos necesarios para tomar decisiones informadas sobre tus productos, servicios y posicionamiento.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="financial-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18v3"/><path d="M8 14v7"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg></div><h3 class="card-title">Hub Financiero</h3><p class="card-description">Planificación financiera. Crea presupuestos, gestiona el flujo de caja y planifica para la sostenibilidad.<br>Valor: Te equipa con el conocimiento para gestionar tu dinero sabiamente y planificar la estabilidad financiera.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="commercial-identity-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 8h-3"/><path d="m15 2-1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3"/><path d="M16.899 22A5 5 0 0 0 7.1 22"/><path d="m9 2 3 6"/><circle cx="12" cy="15" r="3"/></svg></div><h3 class="card-title">Hub de Identidad Comercial</h3><p class="card-description">Tu marca y voz. Define tu identidad de marca y el mensaje que comunicas.<br>Valor: Te ayuda a construir una marca fuerte y reconocible que resuene con tu audiencia.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="protection-compliance-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div><h3 class="card-title">Hub de Protección y Cumplimiento</h3><p class="card-description">Legal y regulatorio. Formaliza tu negocio y cumple con las regulaciones en línea.<br>Valor: Asegura que tu negocio opere legalmente y proteja tus activos.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="digital-wallet-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 14h.01"/><path d="M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"/></svg></div><h3 class="card-title">Hub de Billetera Digital</h3><p class="card-description">Gestión de pagos. Configura métodos de pago en línea y maneja transacciones seguras.<br>Valor: Facilita transacciones en línea fluidas y seguras para tu negocio.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="digital-marketing-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div><h3 class="card-title">Hub de Marketing Digital</h3><p class="card-description">Atrae clientes. Estrategias y herramientas para marketing digital efectivo.<br>Valor: Proporciona las estrategias y tácticas para atraer y comprometer a tus clientes objetivo en línea.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="purchasing-sales-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.16"></path></svg></div><h3 class="card-title">Hub de Compras y Ventas</h3><p class="card-description">Procesos de compra y venta. Optimiza tu embudo y gestiona operaciones comerciales.<br>Valor: Agiliza tus procesos de compra y venta para máxima eficiencia.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="online-presence-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="m9 10 2 2 4-4"/><rect x="3" y="4" width="18" height="12" rx="2"/></svg></div><h3 class="card-title">Hub de Presencia en Línea</h3><p class="card-description">Tu escaparate digital. Construye y optimiza tu sitio web y perfiles en línea.<br>Valor: Te ayuda a establecer y mejorar tu hogar en línea principal.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="communication-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><h3 class="card-title">Hub de Comunicación</h3><p class="card-description">Conéctate efectivamente. Mejora la comunicación interna y externa.<br>Valor: Mejora la claridad y eficiencia en todas tus interacciones comerciales.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="customer-service-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3 class="card-title">Hub de Servicio al Cliente</h3><p class="card-description">Soporte y satisfacción. Implementa un servicio al cliente excepcional.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="content-creation-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></div><h3 class="card-title">Hub de Creación de Contenido</h3><p class="card-description">Genera valor con contenido. Crea material atractivo que atraiga a tu audiencia.<br>Valor: Te empodera para contar la historia de tu marca y proporcionar valor a través del contenido.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="data-analytics-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg></div><h3 class="card-title">Hub de Datos y Análisis</h3><p class="card-description">Entiende tus números. Haz seguimiento de métricas, analiza desempeño y toma decisiones informadas.<br>Valor: Convierte datos crudos en conocimientos accionables para optimización y crecimiento.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="automations-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div><h3 class="card-title">Hub de Automatizaciones</h3><p class="card-description">Optimiza tu tiempo. Automatiza tareas repetitivas para ahorrar tiempo y recursos.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="optimization-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><h3 class="card-title">Hub de Optimización</h3><p class="card-description">Mejora continua. Optimiza conversión, desempeño web y refina procesos.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="formalization-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></div><h3 class="card-title">Hub de Formalización</h3><p class="card-description">Pasos legales para incorporar. Guías detalladas sobre estructuras legales y registro.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="accounting-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg></div><h3 class="card-title">Hub de Contabilidad</h3><p class="card-description">Finanzas claras. Recursos para contabilidad básica, facturación y gestión de impuestos.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="investment-hub"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H2v15h7c1.7 0 3 1.3 3 3V7c0-2.2-1.8-4-4-4Z"></path><path d="m16 12 2 2 4-4"></path><path d="m22 6V3h-6c-2.2 0-4 1.8-4 4v14c0-1.7 1.3-3 3-3h7v-2.3"></path></svg></div><h3 class="card-title">Hub de Inversión</h3><p class="card-description">Busca y gestiona financiamiento. Información sobre fuentes de inversión y relaciones con inversionistas.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="tools-directory"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1"/><path d="m21 21-1.9-1.9"/><circle cx="17" cy="17" r="3"/></svg></div><h3 class="card-title">Directorio de Herramientas</h3><p class="card-description">Directorio de herramientas. Una lista curada de herramientas esenciales para tu negocio.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="artificial-intelligence"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3 class="card-title">Inteligencia Artificial</h3><p class="card-description">Asistencia inteligente. Accede a recursos y herramientas con IA para diversas tareas.</p></div></a>
+                <a href="#" class="section-card-link"><div class="section-card" data-target-section="support-center"><div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div><h3 class="card-title">Centro de Soporte</h3><p class="card-description">Obtén ayuda cuando la necesites. Documentación, tutoriales y opciones de contacto.</p></div></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Línea de Tiempo del Viaje -->
+    <section class="journey-timeline-section">
+        <div class="content-wrapper">
+            <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                       @media (max-width: 768px) { font-size: 24px; }">
+                <strong>Tu Viaje con Synergy: Un Camino Guiado</strong>
+            </h2>
+            <p style="text-align: center; margin-bottom: 40px;"><br>Synergy está diseñado para ser tu compañero en cada etapa del crecimiento de tu negocio en línea. Aquí hay una progresión sugerida:</p>
+            
+            <div class="flex justify-center">
+                <div class="w-full max-w-4xl">
+                    <div class="space-y-8 mt-6">
+                        <!-- Fase 1 -->
+                        <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                            <div class="font-caveat font-medium text-2xl text-pink-600 mb-1 sm:mb-0">Concepción y Validación</div>
+                            <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 rounded-full">Fase 1</time>
+                                <div class="text-xl font-bold text-slate-900">Idea, Mercado, Marca y Finanzas</div>
+                                <div class="timeline-marker"></div>
+                            </div>
+                            <div class="text-slate-600">
+                                <p class="!mb-2">Define tu idea, valida su potencial en el mercado y bosqueja tu identidad de marca inicial y plan financiero. Usa estos hubs:</p>
+                                <div class="stage-hubs">
+                                    <span>Hub de Exploración</span>
+                                    <span>Hub de Investigación de Mercado</span>
+                                    <span>Hub de Identidad Comercial</span>
+                                    <span>Hub Financiero</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fase 2 -->
+                        <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                            <div class="font-caveat font-medium text-2xl text-pink-600 mb-1 sm:mb-0">Estructura y Legalidad</div>
+                            <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 rounded-full">Fase 2</time>
+                                <div class="text-xl font-bold text-slate-900">Fundamento del Negocio y Cumplimiento</div>
+                                <div class="timeline-marker"></div>
+                            </div>
+                            <div class="text-slate-600">
+                                <p class="!mb-2">Establece la estructura interna y marco legal de tu negocio para operar formalmente y con seguridad. Usa estos hubs:</p>
+                                <div class="stage-hubs">
+                                    <span>Hub de Organización</span>
+                                    <span>Hub de Formalización</span>
+                                    <span>Hub de Protección y Cumplimiento</span>
+                                    <span>Hub de Contabilidad</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Fase 3 -->
+                        <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                            <div class="font-caveat font-medium text-2xl text-pink-600 mb-1 sm:mb-0">Presencia Inicial y Operaciones</div>
+                            <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 rounded-full">Fase 3</time>
+                                <div class="text-xl font-bold text-slate-900">Construyendo tu HQ Digital</div>
+                                <div class="timeline-marker"></div>
+                            </div>
+                            <div class="text-slate-600">
+                                <p class="!mb-2">Crea tu escaparate digital, configura pagos y prepara tus sistemas operativos básicos. Usa estos hubs:</p>
+                                <div class="stage-hubs">
+                                    <span>Hub de Presencia en Línea</span>
+                                    <span>Hub de Billetera Digital</span>
+                                    <span>Hub de Compras y Ventas</span>
+                                    <span>Hub de Creación de Contenido</span>
+                                    <span>Hub de Comunicación</span>
+                                    <span>Hub de Servicio al Cliente</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fase 4 -->
+                        <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                            <div class="font-caveat font-medium text-2xl text-pink-600 mb-1 sm:mb-0">Crecimiento y Marketing</div>
+                            <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 rounded-full">Fase 4</time>
+                                <div class="text-xl font-bold text-slate-900">Atrayendo Clientes y Midiendo el Éxito</div>
+                                <div class="timeline-marker"></div>
+                            </div>
+                            <div class="text-slate-600">
+                                <p class="!mb-2">Atrae tráfico, crea contenido valioso, mide resultados y busca financiamiento si es necesario. Usa estos hubs:</p>
+                                <div class="stage-hubs">
+                                    <span>Hub de Marketing Digital</span>
+                                    <span>Hub de Creación de Contenido</span>
+                                    <span>Hub de Datos y Análisis</span>
+                                    <span>Hub de Optimización</span>
+                                    <span>Hub de Inversión</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fase 5 -->
+                        <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                            <div class="font-caveat font-medium text-2xl text-pink-600 mb-1 sm:mb-0">Optimización y Escalamiento</div>
+                            <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                                <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 rounded-full">Fase 5</time>
+                                <div class="text-xl font-bold text-slate-900">Eficiencia y Expansión</div>
+                                <div class="timeline-marker"></div>
+                            </div>
+                            <div class="text-slate-600">
+                                <p class="!mb-2">Automatiza procesos, refina todos los aspectos de tu negocio y prepárate para escalar eficientemente. Usa estos hubs:</p>
+                                <div class="stage-hubs">
+                                    <span>Hub de Automatizaciones</span>
+                                    <span>Hub de Optimización</span>
+                                    <span>Hub de Datos y Análisis</span>
+                                    <span>Hub de Servicio al Cliente</span>
+                                    <span>Todos los Hubs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes -->
+    <section class="faq-section">
+        <div class="content-wrapper">
+            <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                       @media (max-width: 768px) { font-size: 24px; }">
+                <strong>Preguntas Frecuentes</strong>
+            </h2><br>
+            <div class="faq-item"><h3 class="faq-question">¿Cómo navego por Synergy?</h3><div class="faq-answer"><p>Usa el menú de navegación en el lado izquierdo de la pantalla. Haz clic en cualquier nombre de sección para cargar su contenido en el panel principal a la derecha. También puedes hacer clic en las tarjetas de sección en esta página para navegar directamente a ese hub.</p></div></div>
+            <div class="faq-item"><h3 class="faq-question">¿Synergy es adecuado para mi tipo de negocio?</h3><div class="faq-answer"><p>Synergy está diseñado para una amplia gama de negocios digitales y aquellos estableciendo una presencia en línea. Ya seas un freelancer, startup de e-commerce, consultor o negocio tradicional que se vuelve digital, encontrarás recursos relevantes.</p></div></div>
+            <div class="faq-item"><h3 class="faq-question">¿Necesito habilidades técnicas avanzadas para usar Synergy?</h3><div class="faq-answer"><p>¡Absolutamente no! Synergy fue construido para ser intuitivo para emprendedores de todos los niveles de habilidad técnica. Mientras algunas secciones cubren temas técnicos, proporcionamos explicaciones claras, guías paso a paso y herramientas que simplifican procesos complejos.</p></div></div>
+            <div class="faq-item"><h3 class="faq-question">¿Cómo obtengo ayuda si tengo preguntas o problemas?</h3><div class="faq-answer"><p>Tienes varias opciones de soporte:</p><ul><li>Visita el <strong>Centro de Soporte</strong> para acceder a nuestra base de conocimiento, tutoriales y FAQs detalladas</li><li>Si necesitas asistencia personalizada, busca la opción para contactar a nuestro equipo de soporte dentro del Centro de Soporte</li><li>El <strong>Centro de Soporte de Inteligencia Artificial</strong> también puede proporcionar respuestas rápidas a muchas preguntas comunes</li></ul></div></div>
+            <div class="faq-item"><h3 class="faq-question">¿Con qué frecuencia se actualiza el contenido?</h3><div class="faq-answer"><p>El mundo digital cambia constantemente, y Synergy también. Actualizamos regularmente contenido, guías e integramos nuevas herramientas para asegurar que tengas la información más relevante y precisa alineada con tendencias actuales y mejores prácticas.</p></div></div>
+        </div>
+    </section>
+
+    <!-- Llamado a la Acción -->
+    <section class="cta-section">
+        <h2 style="font-size: 48px; margin: 0; padding: 0; line-height: 1.2; 
+                   @media (max-width: 768px) { font-size: 24px; }">
+            <strong>Tu Viaje Comienza Ahora 🚀</strong>
+        </h2>
+        <p><br>Synergy está diseñado para ser tu compañero en cada etapa del crecimiento de tu negocio en línea. No necesitas abordar todo a la vez - comienza con lo que sientas más relevante para tus necesidades actuales.</p>
+        <button class="explore-button">¡Comienza a Explorar las Secciones!</button>
+    </section>
+    
+    <div>
+        <p style="font-size: 12px; text-align: center; margin: 50px 0; color: #666;">
+            <br>Desarrollado con 💖 por Bebell Digital Solutions.<br>
+            Copyright © 2024 • Todos los derechos reservados.
+        </p>
+    </div>
+</main>   
+        
+        
+    </main>
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Accordion Functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all other open answers
+                    document.querySelectorAll('.faq-question.active').forEach(item => {
+                        if (item !== this) {
+                            item.classList.remove('active');
+                            item.nextElementSibling.classList.remove('open');
+                        }
+                    });
+                    
+                    // Toggle current answer
+                    this.classList.toggle('active');
+                    answer.classList.toggle('open');
+                });
+            });
+            
+            // Section Card Navigation (for demonstration)
+            const sectionCardLinks = document.querySelectorAll('.section-card-link');
+            sectionCardLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetSection = this.querySelector('.section-card').getAttribute('data-target-section');
+                    if (targetSection) {
+                        console.log('Navigating to:', targetSection);
+                        alert('In the actual application, this would navigate to the ' + targetSection.replace(/-/g, ' ') + ' section.');
+                    }
+                });
+            });
+            
+            // Explore Button Functionality
+            const exploreButton = document.querySelector('.explore-button');
+            if (exploreButton) {
+                exploreButton.addEventListener('click', function() {
+                    document.querySelector('.sections-overview-section').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
